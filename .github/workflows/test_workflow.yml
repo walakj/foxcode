@@ -10,13 +10,31 @@ on:
 jobs:
   myjob:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+
     steps:
+      - name: Download the code from the repository
       - uses: actions/checkout@v3
 
-      - name: Run a one-line script
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Greetings
         run: echo Hello, world!
 
       - name: Run a multi-line script
         run: |
           echo I like foxes
           echo and dogs.
+
+      - name: npm clean install
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm run test
