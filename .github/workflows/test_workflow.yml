@@ -35,7 +35,10 @@ jobs:
       - name: Run unit tests
         run: npm run test
 
-      - name: Archive artifacts
+      - name: Build
+        run: npm run build
+
+      - name: Archive the dist folder
         uses: actions/upload-artifact@v3
         with:
           name: foxy
