@@ -4,7 +4,7 @@ jobs:
   debug_context:
     runs-on: ubuntu-latest
     env:
-      HEH=myenv
+      HEH: myenv
     steps:
       - name: Debug Context Step
         run: echo "${{ toJSON(github.event) }}"
