@@ -5,9 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HEH: myenv
+      SUPER_SECRET: ${{ secrets.SUPER_SECRET }}
     steps:
       - name: Debug Context Step
         run: echo "${{ toJSON(github.event) }}"
       - name: Check environmental variable
-        run: echo "HEH is $HEH (${{ env.HEH }})"
+        run: echo "HEH is $HEH (${{ env.HEH }}) $SUPER_SECRET"
+
 
