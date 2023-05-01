@@ -1,8 +1,8 @@
-name: debug context
+name: Debug Context Workflow
 on: workflow_dispatch
 jobs:
-  debug:
+  debug_context:
     runs-on: ubuntu-latest
     steps:
-      - name: debug github context
-        run: echo "{{ toJSON(github) }}"
+      - name: Debug Context Step
+        run: echo "${{ toJSON(github) }}"
