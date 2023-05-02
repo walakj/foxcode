@@ -9,4 +9,12 @@ jobs:
     steps:
       - name: Debug Context Step
         run: echo "${{ toJSON(github.event) }}"
-
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ toJSON(github.event.issue.number) }}
+          body: |
+            This is a multi-line comment
+            - With GitHub **Markdown** :sparkles:
+            - Something here :eyes:
+            
