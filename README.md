@@ -1,7 +1,7 @@
 
 # Foxcode
 
-Hello, fellow foxes! Welcome to Foxcode, the ultimate collection of code snippets for all your foxy needs. Whether you want to create a website, an app, a game, or a tool, Foxcode has you covered. Here are some features of Foxcode:
+Hello, fellow foxes! Here are some features of Foxcode:
 
 - Easy to use and customize for your own projects.
 - Includes examples and tutorials for beginners and experts alike.
