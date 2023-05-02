@@ -4,7 +4,7 @@ jobs:
   debug_context:
     runs-on: ubuntu-latest
     env:
-      HEH: myenv
+      HEH: foobar
       SUPER_SECRET: ${{ secrets.SUPER_SECRET }}
     steps:
       - name: Debug Context Step
