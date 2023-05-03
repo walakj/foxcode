@@ -1,7 +1,10 @@
 name: Test Workflow
 
 #on: [push, pull_request, workflow_dispatch]
-on: [ workflow_dispatch ]
+on: [ push, workflow_dispatch ]
+
+permissions:
+  contents: write
 
 jobs:
   myjob:
@@ -43,3 +46,9 @@ jobs:
         with:
           name: foxy
           path: dist
+
+      - name: Create a release and upload attachments
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ github.TOKEN }}
+        run: gh release create ${{ github.ref }} --title "Release ${{ github.ref }}" --generate-notes dist/index.html
