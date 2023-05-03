@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test Step
-#        uses: walakj/foxaction
-        run: echo "running..."
+        uses: walakj/foxaction@master
+#        run: echo "running..."
 
 
