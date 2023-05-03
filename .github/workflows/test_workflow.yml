@@ -53,4 +53,4 @@ jobs:
           GITHUB_TOKEN: ${{ github.TOKEN }}
         run: |
           TAG_NAME=${GITHUB_REF#refs/tags/}
-          gh release create $TAG_NAME --title "Release $TAG_NAME --author ${{ github.actor }} dist/index.html
+          gh release create $TAG_NAME --title "Release $TAG_NAME" --author ${{ github.actor }} dist/index.html
