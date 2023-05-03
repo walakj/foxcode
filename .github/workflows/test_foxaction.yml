@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Test Step
         uses: walakj/foxaction@master
+        with:
+          message: 'Hello from fox code'
 #        run: echo "running..."
 
 
