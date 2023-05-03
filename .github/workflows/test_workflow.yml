@@ -47,10 +47,12 @@ jobs:
           name: foxy
           path: dist
 
-      - name: Create a release and upload attachments
-        if: startsWith(github.ref, 'refs/tags/')
+      - name: Draft a release if a v* tag is pushed
+        if: true && startsWith(github.ref, 'refs/tags/v')
         env:
+          # authenticate as "github-actions"
           GITHUB_TOKEN: ${{ github.TOKEN }}
         run: |
-          TAG_NAME=${GITHUB_REF#refs/tags/}
-          gh release create $TAG_NAME --draft --title "Release $TAG_NAME" dist/index.html dist/vite.svg
+          DATE=$(date +"%b %-d, %Y")
+          TAG_NAME=${GITHUB_REF#refs/tags/v}
+          gh release create "v$TAG_NAME" --draft --title "$TAG_NAME - released on $DATE" dist/index.html dist/vite.svg
