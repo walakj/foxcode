@@ -1,0 +1,9 @@
+name: Test my Action
+on: workflow_dispatch
+jobs:
+  haha:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Step
+        uses: walakj/foxaction
+
